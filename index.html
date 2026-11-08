@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Browse all products available at Gallery. Find your favorites in electronics, fashion, home essentials, and more." />
+    <title>Products</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <script>
+        try { if (localStorage.getItem("theme") === "dark") document.documentElement.classList.add("dark"); } catch (e) { }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header id="navbar" class="navbar"></header>
+
+    <main class="page">
+        <div class="container">
+            <h1 class="page-title">Products</h1>
+
+            <div class="toolbar products-toolbar">
+
+                <div class="toolbar-top">
+
+                    <div class="search-box">
+                        <input id="search" type="text" placeholder="Search products..." />
+                        <span class="search-icon" id="searchIcon"></span>
+                    </div>
+
+                    <div class="sort-box">
+                        <label for="sort">Sort By</label>
+                        <select id="sort">
+                            <option value="">Sort By</option>
+                            <option value="price-asc">Price: Low to High</option>
+                            <option value="price-desc">Price: High to Low</option>
+                            <option value="rating-desc">Highest Rating</option>
+                            <option value="name-asc">Name: A - Z</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="filters-section">
+
+                    <div class="filters-heading">
+                        <h3>Filter Products</h3>
+                        <span>Find exactly what you're looking for</span>
+                    </div>
+
+                    <div class="filters-controls">
+
+                        <div class="filter-group">
+                            <label for="category">Category</label>
+                            <select id="category">
+                                <option value="">All Categories</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="rating">Rating</label>
+                            <select id="rating">
+                                <option value="">All Ratings</option>
+                                <option value="1">1 Stars</option>
+                                <option value="2">2 Stars</option>
+                                <option value="3">3 Stars</option>
+                                <option value="4">4 Stars</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group price-group">
+                            <label>Price Range</label>
+
+                            <div class="price-inputs">
+                                <input type="number" id="minPrice" placeholder="Min Price" min="0" />
+
+                                <span class="price-separator">-</span>
+
+                                <input type="number" id="maxPrice" placeholder="Max Price" min="0" />
+                            </div>
+                        </div>
+
+                        <div class="filter-action">
+                            <button id="applyFilters" class="btn btn-pink">
+                                Apply Filters
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+            <p id="status" class="status"></p>
+            <section id="products" class="grid"></section>
+            <nav id="pagination" class="pagination"></nav>
+        </div>
+    </main>
+
+    <dialog id="detailsDialog">
+        <button id="closeDialog" class="close-dialog" aria-label="Close">
+            &times;
+        </button>
+
+        <div id="detailsContent"></div>
+    </dialog>
+
+    <script src="script.js"></script>
+    <script src="product.js"></script>
+</body>
+
+</html>
